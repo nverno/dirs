@@ -1,12 +1,18 @@
 Package: dirs
 Title: Functions for exploring directories
 Version: 0.0.0.9000
-Authors: Noah Peart
+Author: Noah Peart
+Maintainer: Noah Peart <noah.v.peart@gmail.com>
 Description: Contains some functions to help navigate/explore directories
-Depends: R (>= 3.2.2)
+Depends: 
+    R (>= 3.2.2)
 License: GPL-2
 LazyData: true
-Imports: shiny,
+Imports: 
+    shiny,
     shinyTree,
-    tools
-Suggests: testthat
+    tools,
+    devtools
+Suggests: 
+    testthat
+RoxygenNote: 5.0.1

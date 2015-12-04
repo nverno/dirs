@@ -5,11 +5,11 @@
 ##' @return basename of file or an empty string
 ##' @export
 bname <- function(ff) {
-    if (length(ff)) {
-        value <- withCallingHandlers(tryCatch({
-            basename(ff)
-        }, error = function(e) e))
-    }
+  if (length(ff)) {
+    tryCatch({
+      basename(ff)
+    }, error = function(e) e)
+  }
 }
 
 ##' Make a nested list out of a directory
@@ -40,35 +40,30 @@ nest_dir <- function(path, value=bname) {
     }
 }
 
-
-clean_list <- function(lst, fun = is.null, recursive = FALSE) {
-  if(recursive) {
-    res <- lapply(lst, function(x) {
-      if (is.list(x)) clean_list(x, fun, TRUE)
-      else x
-    })
-  }
-  lst[!vapply(lst, fun, logical(1L))]
-  lst
+## Remove all NULLs from nested directories
+##' @title remove_nulls
+##' @param nest nested list
+##' @return nested list with all NULLs removed (and all branches containing only NULLs)
+##' @export
+remove_nulls <- function(nest) {
+  if (is.list(nest)) {
+    inds <- vapply(nest, FUN=function(x) all(is.null(unlist(x, use.names=FALSE))),
+                   FUN.VALUE = logical(1), USE.NAMES = FALSE)
+    nest <- nest[!inds]  # remove branches that are all NULL
+    lapply(nest, remove_nulls)
+  } else nest
 }
 
+## Keep only specific files in nested directories
+##' @title trim_nest
+##' @param lst nested list
+##' @param files values to keep in nested list
+##' @return nested list only containing files (and branches with those files)
+##' @export
 trim_nest <- function(lst, files) {
-    f <- function(x) if (x %in% files) x else NULL
-    res <- rapply(lst, f, how="replace")
-    res <- res[vapply(res, FUN=function(i) any(!is.null(unlist(i, use.names=FALSE))),
-                     FUN.VALUE = logical(1))]
-    
-    cond <- function(x) {
-        (is.null(x) |
-         !length(x) |
-         all(unlist(lapply(x, function(i) is.null(i) | !length(i)), use.names=FALSE)))
-    }
-
-    rmNull <- function(x) {
-        x <- Filter(Negate(cond), x)
-        lapply(x, function(y) if (is.list(y)) rmNull(y) else y)
-    }
-    
-    return( rmNull(res) )
+  ## First replace everything not in files with NULL
+  f <- function(x) if (x %in% files) x else NULL
+  res <- rapply(lst, f, how="replace")  
+  return( remove_nulls(res) )
 }
 
