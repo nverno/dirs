@@ -26,3 +26,4 @@ explore_dir <- function(path, files=NULL) {
   runApp(list(ui=ui, server=server))
 
 }
+
