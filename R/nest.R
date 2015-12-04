@@ -6,9 +6,9 @@
 ##' @export
 bname <- function(ff) {
     if (length(ff)) {
-        tryCatch({
+        value <- withCallingHandlers(tryCatch({
             basename(ff)
-        }, error = function(e) "")
+        }, error = function(e) e))
     }
 }
 
@@ -39,6 +39,7 @@ nest_dir <- function(path, value=bname) {
         }
     }
 }
+
 
 clean_list <- function(lst, fun = is.null, recursive = FALSE) {
   if(recursive) {
