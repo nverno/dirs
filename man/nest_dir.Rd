@@ -2,7 +2,7 @@
 % Please edit documentation in R/nest.R
 \name{nest_dir}
 \alias{nest_dir}
-\title{nest_dir}
+\title{Make a nested list out of a directory}
 \usage{
 nest_dir(path, value = bname)
 }
@@ -15,7 +15,6 @@ nest_dir(path, value = bname)
 nested list
 }
 \description{
-Make a nested list out of a directory
 Note: there might be problems with document name length on windows.
 tools::file_ext() was the quickest check for directory I could think of,
 but there is probably something better (pattern "/$" or similar?)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/nest.R
 \name{bname}
 \alias{bname}
-\title{bname}
+\title{Helper function to return a value for nest_dir}
 \usage{
 bname(ff)
 }
@@ -13,7 +13,6 @@ bname(ff)
 basename of file or an empty string
 }
 \description{
-Helper function to return a value for nest_dir
-(empty strings for empty lists)
+Returns (empty strings for empty lists)
 }
 

@@ -1,6 +1,5 @@
-##' Helper function to return a value for nest_dir
-##' (empty strings for empty lists)
-##' @title bname
+##' Returns (empty strings for empty lists)
+##' @title Helper function to return a value for nest_dir
 ##' @param ff Filename or empty list (result from nest_dir)
 ##' @return basename of file or an empty string
 ##' @export
@@ -12,11 +11,10 @@ bname <- function(ff) {
   }
 }
 
-##' Make a nested list out of a directory
 ##' Note: there might be problems with document name length on windows.
 ##' tools::file_ext() was the quickest check for directory I could think of,
 ##' but there is probably something better (pattern "/$" or similar?)
-##' @title nest_dir
+##' @title Make a nested list out of a directory
 ##' @param path Base directory to start nesting from
 ##' @param value function to assign a value for each node (default `bname`)
 ##' @return nested list
@@ -40,8 +38,7 @@ nest_dir <- function(path, value=bname) {
     }
 }
 
-## Remove all NULLs from nested directories
-##' @title remove_nulls
+##' @title Remove all NULLs from nested directories
 ##' @param nest nested list
 ##' @return nested list with all NULLs removed (and all branches containing only NULLs)
 ##' @export
@@ -54,8 +51,7 @@ remove_nulls <- function(nest) {
   } else nest
 }
 
-## Keep only specific files in nested directories
-##' @title trim_nest
+##' @title Keep only specific files in nested directories
 ##' @param lst nested list
 ##' @param files values to keep in nested list
 ##' @return nested list only containing files (and branches with those files)

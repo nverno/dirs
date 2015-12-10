@@ -2,7 +2,7 @@
 % Please edit documentation in R/nest.R
 \name{remove_nulls}
 \alias{remove_nulls}
-\title{remove_nulls}
+\title{Remove all NULLs from nested directories}
 \usage{
 remove_nulls(nest)
 }

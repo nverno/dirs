@@ -2,7 +2,7 @@
 % Please edit documentation in R/nest.R
 \name{trim_nest}
 \alias{trim_nest}
-\title{trim_nest}
+\title{Keep only specific files in nested directories}
 \usage{
 trim_nest(lst, files)
 }
