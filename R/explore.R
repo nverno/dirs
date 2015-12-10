@@ -9,22 +9,21 @@ explore_dir <- function(path, files=NULL) {
   lst <- nest_dir(path)
   if (!is.null(files)) lst <- trim_nest(lst, files)
   
-  ui <- pageWithSidebar(
-    headerPanel('Search the directory'),
-    sidebarPanel(
-      p(HTML('Search for a file'))
+  ui <- shiny::pageWithSidebar(
+    shiny::headerPanel('Search the directory'),
+    shiny::sidebarPanel(
+      shiny::p(htmltools::HTML('Search for a file'))
     ),
-    mainPanel(
-      shinyTree('tree', search=TRUE)
+    shiny::mainPanel(
+      shinyTree::shinyTree('tree', search=TRUE)
     )
   )
 
   server <- function(input, output, session) {
-    output$tree <- renderTree({
+    output$tree <- shinyTree::renderTree({
       lst
     })
   }
-  runApp(list(ui=ui, server=server))
-
+  shiny::runApp(list(ui=ui, server=server))
 }
 
