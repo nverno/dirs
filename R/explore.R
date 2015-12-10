@@ -1,4 +1,4 @@
-##' Make an interactive shiny app to explore the directory
+##' @title Make an interactive shiny app to explore the directory
 ##' @import shiny
 ##' @import shinyTree
 ##' @param path path to directory to visualize

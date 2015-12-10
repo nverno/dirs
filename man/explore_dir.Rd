@@ -11,7 +11,4 @@ explore_dir(path, files = NULL)
 
 \item{files}{keep only these files in nested list (default to NULL)}
 }
-\description{
-Make an interactive shiny app to explore the directory
-}
 
