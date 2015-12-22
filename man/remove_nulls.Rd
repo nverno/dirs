@@ -12,4 +12,7 @@ remove_nulls(nest)
 \value{
 nested list with all NULLs removed (and all branches containing only NULLs)
 }
+\description{
+Removes NULL entries from nested list of directories
+}
 

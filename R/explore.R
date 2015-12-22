@@ -9,7 +9,6 @@
 ##' }
 ##' @import shiny
 ##' @import shinyTree
-##' @importFrom htmltools HTML
 ##' @export
 explore_dir <- function(path, files=NULL) {
   require(shinyTree)
@@ -20,7 +19,7 @@ explore_dir <- function(path, files=NULL) {
   ui <- shiny::pageWithSidebar(
     shiny::headerPanel('Search the directory'),
     shiny::sidebarPanel(
-      shiny::p(htmltools::HTML('Search for a file'))
+      shiny::p(HTML('Search for a file'))
     ),
     shiny::mainPanel(
       shinyTree::shinyTree('tree', search=TRUE)

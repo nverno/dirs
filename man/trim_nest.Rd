@@ -14,4 +14,9 @@ trim_nest(lst, files)
 \value{
 nested list only containing files (and branches with those files)
 }
+\description{
+Searches through nested directory list and removes entries not
+containing specified files.  If an entire branch of the nested list
+contains no specified files, it will be removed entirely.
+}
 

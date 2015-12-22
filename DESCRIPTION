@@ -5,7 +5,8 @@ Author: Noah Peart
 Maintainer: Noah Peart <noah.v.peart@gmail.com>
 Description: Contains some functions to help navigate/explore directories
 Depends: 
-    R (>= 3.2.2)
+    R (>= 3.2.2),
+    sync.afs
 License: GPL-2
 LazyData: true
 Imports: 

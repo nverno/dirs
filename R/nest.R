@@ -38,6 +38,7 @@ nest_dir <- function(path, value=bname) {
     }
 }
 
+##' Removes NULL entries from nested list of directories
 ##' @title Remove all NULLs from nested directories
 ##' @param nest nested list
 ##' @return nested list with all NULLs removed (and all branches containing only NULLs)
@@ -51,6 +52,9 @@ remove_nulls <- function(nest) {
   } else nest
 }
 
+##' Searches through nested directory list and removes entries not
+##' containing specified files.  If an entire branch of the nested list
+##' contains no specified files, it will be removed entirely.
 ##' @title Keep only specific files in nested directories
 ##' @param lst nested list
 ##' @param files values to keep in nested list
