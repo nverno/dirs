@@ -11,4 +11,13 @@ explore_dir(path, files = NULL)
 
 \item{files}{keep only these files in nested list (default to NULL)}
 }
+\description{
+Interactive interface to AFS files (requires AFS connection -- not tested on MAC).
+}
+\examples{
+\dontrun{
+  ## Interactive visualization of tracked files on AFS
+  explore_dir(get_afs(), files=data_key$filename)
+}
+}
 
